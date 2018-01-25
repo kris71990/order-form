@@ -75,10 +75,20 @@ function showImage(e) {
 }
 
 function addToCart() {
-//add currently showing quantity to currently showing product object
-  Product.allProducts[currentProductIndex].quantity = parseInt(inputEl.value);
+  if (inputEl.value !== ''){
+  //add currently showing quantity to currently showing product object
+    Product.allProducts[currentProductIndex].quantitySelected = parseInt(inputEl.value);
 
-  //push currently showing product to array of chosen products
-  Product.chosenProducts.push(Product.allProducts[currentProductIndex]);
+    //push currently showing product to array of chosen products
+    Product.chosenProducts.push(Product.allProducts[currentProductIndex]);
 
+    //reset quantity field
+    inputEl.value = '';
+
+  //display confirmation message and link to shopping cart
+
+  }
+  else {
+    alert('Please enter a quantity');
+  }
 }
