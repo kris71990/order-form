@@ -1,14 +1,18 @@
 'use strict';
 
+var currentProductIndex;
+
 //array of all products
 Product.allProducts = [];
+
+//array of chosen products
+Product.chosenProducts = [];
 
 //make constructor for Product objects
 function Product(filepath, name) {
   this.filepath = filepath;
   this.name = name;
-  this.displayCount = 0;
-  this.clickCount = 0;
+  this.quantitySelected = 0;
   Product.allProducts.push(this);
 }
 
@@ -38,8 +42,11 @@ function createProducts(){
 }
 createProducts();
 
-// access the <select> element from the DOM
+// access the elements from the DOM
 var selectEl = document.getElementById( 'busmall-products' );
+var imgEl = document.getElementById( 'product-image' );
+var buttonEl = document.getElementById( 'add-to-cart');
+var inputEl = document.getElementById( 'product-quantity' );
 
 //for each product
 for( var i = 0; i < Product.allProducts.length; i++){
@@ -55,4 +62,23 @@ for( var i = 0; i < Product.allProducts.length; i++){
   selectEl.appendChild(optionEl);
 }
 
+selectEl.addEventListener('change', showImage);
+buttonEl.addEventListener('click', addToCart);
 
+function showImage(e) {
+  for(var i in Product.allProducts) {
+    if(e.target.value === Product.allProducts[i].name){
+      imgEl.src = Product.allProducts[i].filepath;
+      currentProductIndex = i;
+    }
+  }
+}
+
+function addToCart() {
+//add currently showing quantity to currently showing product object
+  Product.allProducts[currentProductIndex].quantity = parseInt(inputEl.value);
+
+  //push currently showing product to array of chosen products
+  Product.chosenProducts.push(Product.allProducts[currentProductIndex]);
+
+}

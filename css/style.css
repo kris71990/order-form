@@ -23,6 +23,10 @@ h2 {
 img {
   max-width: 100%;
 }
+#product-image {
+  display: block;
+  margin-top: 30px;
+}
 ul {
   margin-top: 20px;
   
