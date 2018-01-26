@@ -40,3 +40,8 @@ ul {
 ul li {
   margin-bottom: 5px;
 }
+
+#cart-list img {
+  width: 200px;
+
+}
