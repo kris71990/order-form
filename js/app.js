@@ -49,6 +49,7 @@ var buttonEl = document.getElementById( 'add-to-cart');
 var inputEl = document.getElementById( 'product-quantity' );
 var divEl = document.getElementById( 'product-selection' );
 var linkEl = document.getElementById( 'view-cart' );
+var ulEl = document.getElementById( 'cart-list' );
 
 //for each product
 for( var i = 0; i < Product.allProducts.length; i++){
@@ -100,6 +101,6 @@ function addToCart() {
 }
 
 function storeProducts() {
-  var chosenProducts = JSON.stringify(Product.chosenProducts);
-  localStorage.setItem( 'chosenProducts', chosenProducts );
+  var stringifyChosenProducts = JSON.stringify(Product.chosenProducts);
+  localStorage.setItem( 'chosenProducts', stringifyChosenProducts );
 }
