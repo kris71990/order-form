@@ -3,6 +3,7 @@ var cartProducts = [];
 var ulEl = document.getElementById('cart-list');
 
 
+
 function displayProduct() {
   cartProducts = JSON.parse(localStorage.getItem( 'chosenProducts' ));
   for (var i in cartProducts) {
@@ -11,7 +12,6 @@ function displayProduct() {
     var liButton = document.createElement('button');
     var spanEl = document.createElement('span');
     var pName = document.createElement('p');
-    
     
     pName.textContent = cartProducts[i].name;
     spanEl.textContent = ' Quantity: ' + cartProducts[i].quantitySelected;
@@ -25,6 +25,11 @@ function displayProduct() {
     liEl.appendChild(liButton);
     ulEl.appendChild(liEl);
 
+    liButton.addEventListener('click', function() {
+      liEl.innerHTML = '';
+    });
+
   }
 }
 displayProduct();
+
