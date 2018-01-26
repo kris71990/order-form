@@ -49,7 +49,6 @@ var buttonEl = document.getElementById( 'add-to-cart');
 var inputEl = document.getElementById( 'product-quantity' );
 var divEl = document.getElementById( 'product-selection' );
 var linkEl = document.getElementById( 'view-cart' );
-var ulEl = document.getElementById( 'cart-list' );
 
 //for each product
 for( var i = 0; i < Product.allProducts.length; i++){

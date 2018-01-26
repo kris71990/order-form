@@ -2,8 +2,6 @@
 var cartProducts = [];
 var ulEl = document.getElementById('cart-list');
 
-
-
 function displayProduct() {
   cartProducts = JSON.parse(localStorage.getItem( 'chosenProducts' ));
   for (var i in cartProducts) {
