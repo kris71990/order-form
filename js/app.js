@@ -48,6 +48,7 @@ var imgEl = document.getElementById( 'product-image' );
 var buttonEl = document.getElementById( 'add-to-cart');
 var inputEl = document.getElementById( 'product-quantity' );
 var divEl = document.getElementById( 'product-selection' );
+var linkEl = document.getElementById( 'view-cart' );
 
 //for each product
 for( var i = 0; i < Product.allProducts.length; i++){
@@ -65,6 +66,7 @@ for( var i = 0; i < Product.allProducts.length; i++){
 
 selectEl.addEventListener('change', showImage);
 buttonEl.addEventListener('click', addToCart);
+linkEl.addEventListener('click' , storeProducts );
 
 function showImage(e) {
   for(var i in Product.allProducts) {
@@ -95,4 +97,9 @@ function addToCart() {
   else {
     alert('Please enter a quantity');
   }
+}
+
+function storeProducts() {
+  var chosenProducts = JSON.stringify(Product.chosenProducts);
+  localStorage.setItem( 'chosenProducts', chosenProducts );
 }
