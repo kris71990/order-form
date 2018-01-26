@@ -27,6 +27,12 @@ img {
   display: block;
   margin-top: 30px;
 }
+#product-selection a{
+  border: 1px solid #000;
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+}
 ul {
   margin-top: 20px;
   

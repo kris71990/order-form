@@ -47,6 +47,7 @@ var selectEl = document.getElementById( 'busmall-products' );
 var imgEl = document.getElementById( 'product-image' );
 var buttonEl = document.getElementById( 'add-to-cart');
 var inputEl = document.getElementById( 'product-quantity' );
+var divEl = document.getElementById( 'product-selection' );
 
 //for each product
 for( var i = 0; i < Product.allProducts.length; i++){
@@ -85,7 +86,10 @@ function addToCart() {
     //reset quantity field
     inputEl.value = '';
 
-  //display confirmation message and link to shopping cart
+    //display confirmation message and link to shopping cart
+    var msgEl = document.createElement('p');
+    msgEl.textContent = 'Item added to cart.';
+    divEl.appendChild(msgEl);
 
   }
   else {
